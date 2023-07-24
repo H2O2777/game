@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <!-- Meta -->
+    <title>Contact</title>
+    <meta charset="UTF-8">
+    <!-- Styles -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/animate/animate.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="img/png" href="img/icon.png" sizes="32x32" />
+</head>
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+         <a class="navbar-brand mx-auto" href="index.html">
+         </a>
+         <div id="toggler" class="wrapper custom-toggler navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            <div class="menu-toggle">
+               <span class="icon-bars custom-toggler navbar-toggler-icon"></span>
+            </div>
+         </div>
+         <div id="toggle-nav" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+               <li class="nav-item"> <a class="nav-link" href="index.php">Об игре</a> </li>
+               <li class="nav-item"> <a class="nav-link" href="index2.php">Галерея</a> </li>
+               <li class="nav-item"> <a class="nav-link" href="index3.php">Контакты</a> </li>
+            </ul>
+         </div>
+      </nav>
+      <!-- Contact -->
+      <div class="container-fluid contact">
+         <div class="row">
+            <div class="col-md-10 offset-md-1">
+               <div class="row">
+                  <div class="col-md-6 col-sm-12">
+                     <p>
+                        Основатели:<br>
+                                   <br>
+                        <br>
+                        Расположение компании:<br>
+                        <br><br>
+                        Сайт компании:<br>
+                        
+                     </p>
+                  </div>
+                  <div class="col-md-5 offset-md-1 col-sm-12">
+                      <p>
+                          Юнатан Сёдерстрём<br>
+                          Деннис Ведин<br><br>
+                          Швеция, Гётеборг<br><br><br>
+                          https://dennatongames.com/
+                      </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- End Contact -->
+      <!-- Contact Form -->
+      <div class="container-fluid contact-form">
+         <div class="row">
+            <div class="col-md-10 offset-md-1 col-sm-12">
+               <h2> Задайте вопросы или напишите нам! </h2>
+               <form class="form-inline pt-5" action="send.php" method="post">
+                  <div class="form-group mb-2">
+                     <input type="text" class="form-control" id="inputtext" name="message" placeholder="Ваше сообщение...">
+                     <input type="email" class="form-control" id="inputtext" name="email" placeholder="Ваш E-mail...">
+                  </div>
+                  <button type="submit" class="mx-sm-4 btn btn-primary mb-2">ОТПРАВИТЬ</button>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- End Contact Form -->
+      <?php
+        $text_message['message'];
+        $email=$_POST['email'];
+
+        $db=mysqli_connect('localhost', 'root', '', 'DB');
+
+        $sql = "INSERT INTO `table`('message', 'email') VALUES ('$text_message', '$email' )";
+        $result=mysqli_query($db, $sql);
+        header('Location: http://game.ru/index3.php');
+        exit;
+        ?>
+      <!-- Javascript -->
+      <script src="vendor/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+      <script src="vendor/wow/wow.js"></script>
+      <script src="js/script.js"></script>
+      <script>
+         new WOW().init();
+      </script>
+      <!-- End Javascript -->
+   </body>
+</html>
